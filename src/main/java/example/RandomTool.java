@@ -11,13 +11,13 @@ public class RandomTool {
         int[] answers = new int[4];
         Map<Integer, Integer> map = new HashMap<>();
         Random rand = new Random();
-        int answer = rand.nextInt(max - min + 1) + min;
+        int answer = 0;
         for (int i = 0; i < answers.length; i++) {
             answer = rand.nextInt(max - min + 1) + min;
             while (map.get(answer) != null) {
                 answer = rand.nextInt(max - min + 1) + min;
             }
-            map.put(i, i);
+            map.put(answer, answer);
             answers[i] = answer;
         }
         System.out.println("Correct Answer: " + Arrays.toString(answers));

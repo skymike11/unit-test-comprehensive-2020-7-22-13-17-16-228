@@ -32,4 +32,17 @@ class CalibrationToolTest {
         assertFalse(result);
     }
 
+    @Test
+    void should_return_false_when_verify_given_123() {
+        //given
+        int [] inputGuess = {1, 2, 3};
+
+        //when
+        CalibrationTool calibrationTool = new CalibrationTool();
+        boolean result = calibrationTool.isLegalInputGuess(inputGuess);
+
+        //then
+        assertFalse(result);
+    }
+
 }
