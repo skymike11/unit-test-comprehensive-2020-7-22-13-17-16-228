@@ -16,7 +16,7 @@ public class GuessNumber {
         return String.format("%dA0B", countAnswerA(inputGuess));
     }
 
-    public int countAnswerA(int[] inputGuess) {
+    private int countAnswerA(int[] inputGuess) {
         int correctNumber = 0;
         for (int i = 0; i < inputGuess.length; i++) {
             if (inputGuess[i] == answer[i]) {
