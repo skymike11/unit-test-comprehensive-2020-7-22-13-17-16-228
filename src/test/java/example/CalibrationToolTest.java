@@ -13,20 +13,20 @@ class CalibrationToolTest {
 
         //when
         CalibrationTool calibrationTool = new CalibrationTool();
-        boolean result = calibrationTool.verifyInputGuess(inputGuess);
+        boolean result = calibrationTool.isLegalInputGuess(inputGuess);
 
         //then
         assertFalse(result);
     }
 
     @Test
-    void should_return_false_when_verify_given_11230() {
+    void should_return_false_when_verify_given_12330() {
         //given
-        int [] inputGuess = {1, 1, 2, 30};
+        int [] inputGuess = {1, 2, 3, 30};
 
         //when
         CalibrationTool calibrationTool = new CalibrationTool();
-        boolean result = calibrationTool.verifyInputGuess(inputGuess);
+        boolean result = calibrationTool.isLegalInputGuess(inputGuess);
 
         //then
         assertFalse(result);
