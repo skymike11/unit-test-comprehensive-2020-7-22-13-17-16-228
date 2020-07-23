@@ -32,7 +32,7 @@ public class GuessNumber {
         int correctNumber = 0;
         for (int i = 0; i < inputGuess.length; i++) {
             int position = Arrays.binarySearch(answer, inputGuess[i]);
-            if (position > 0 && position != i) {
+            if (position >= 0 && position != i) {
                 correctNumber++;
             }
         }
