@@ -23,6 +23,7 @@ public class Main {
                 break;
             } else {
                 GuessNumber guessNumber = new GuessNumber(new AnswerGeneratorImpl());
+                System.out.println(PrintTool.printAnswerResult(guessNumber.guess(inputGuess)));
             }
         }
     }

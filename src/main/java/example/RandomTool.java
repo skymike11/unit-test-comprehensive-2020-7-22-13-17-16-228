@@ -1,8 +1,6 @@
 package example;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @Auther Sam Li
@@ -11,18 +9,18 @@ import java.util.Random;
 public class RandomTool {
     public static int[] randomAnswerList(int min, int max) {
         int[] answers = new int[4];
-        int position = 0;
+        Map<Integer, Integer> map = new HashMap<>();
         Random rand = new Random();
+        int answer = rand.nextInt(max - min + 1) + min;
         for (int i = 0; i < answers.length; i++) {
-            int answer = rand.nextInt(max - min + 1) + min;
-            while (Arrays.binarySearch(answers, answer) >= 0) {
+            answer = rand.nextInt(max - min + 1) + min;
+            while (map.get(answer) != null) {
                 answer = rand.nextInt(max - min + 1) + min;
             }
+            map.put(i, i);
             answers[i] = answer;
         }
-        for (int answer : answers) {
-            System.out.println(answer);
-        }
+        System.out.println("Correct Answer: " + Arrays.toString(answers));
         return answers;
     }
 }
