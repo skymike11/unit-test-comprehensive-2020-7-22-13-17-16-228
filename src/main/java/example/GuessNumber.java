@@ -15,10 +15,10 @@ public class GuessNumber {
     }
 
     public String guess(int[] inputGuess) {
-        return String.format("%dA%dB", countAnswerA(inputGuess), countAnswerB(inputGuess));
+        return String.format("%dA%dB", countAnswerOfCorroctNumberAndPosition(inputGuess), countAnswerOfCorroctNumber(inputGuess));
     }
 
-    private int countAnswerA(int[] inputGuess) {
+    private int countAnswerOfCorroctNumberAndPosition(int[] inputGuess) {
         int correctNumber = 0;
         for (int i = 0; i < inputGuess.length; i++) {
             if (inputGuess[i] == answer[i]) {
@@ -28,7 +28,7 @@ public class GuessNumber {
         return correctNumber;
     }
 
-    private int countAnswerB(int[] inputGuess) {
+    private int countAnswerOfCorroctNumber(int[] inputGuess) {
         int correctNumber = 0;
         for (int i = 0; i < inputGuess.length; i++) {
             int position = Arrays.binarySearch(answer, inputGuess[i]);
