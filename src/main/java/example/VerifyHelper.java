@@ -1,5 +1,9 @@
 package example;
 
+import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 /**
  * @Auther Sam Li
  * @Date 2020-07-23
@@ -11,21 +15,17 @@ public class VerifyHelper {
             return false;
         }
 
-        return !isRepeatedOrOverLimit(inputGuess);
+        return !(isRepeated(inputGuess) || isOutOfRange(inputGuess));
     }
 
-    private boolean isRepeatedOrOverLimit (int[] inputGuess) {
-        int[] sign = new int[10];
-        for (int item : inputGuess) {
-            if (item > 9){
-                return true;
-            }
-            if (sign[item] == 0) {
-                sign[item] = item;
-            } else {
-                return true;
-            }
-        }
-        return false;
+    private boolean isRepeated(int[] inputGuess) {
+        Set<Integer> inputGuessSet = Arrays.stream(inputGuess)
+                .boxed()
+                .collect(Collectors.toSet());
+        return inputGuessSet.size() != inputGuess.length;
+    }
+
+    private boolean isOutOfRange(int[] inputGuess) {
+        return Arrays.stream(inputGuess).anyMatch(item -> item > 9 || item < 0);
     }
 }
