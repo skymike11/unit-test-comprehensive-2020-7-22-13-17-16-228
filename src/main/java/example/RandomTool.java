@@ -20,7 +20,7 @@ public class RandomTool {
             map.put(answer, answer);
             answers[i] = answer;
         }
-        System.out.println("Correct Answer: " + Arrays.toString(answers));
+        System.out.println(String.format("Correct Answer: %s", Arrays.toString(answers)));
         return answers;
     }
 }

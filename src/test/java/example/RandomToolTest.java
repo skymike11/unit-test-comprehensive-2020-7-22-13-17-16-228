@@ -11,9 +11,9 @@ class RandomToolTest {
         //given
         int min = 1;
         int max = 9;
-        CalibrationTool calibrationTool = new CalibrationTool();
+        VerifyHelper verifyHelper = new VerifyHelper();
         // when
-        boolean result = calibrationTool.isLegalInputGuess(RandomTool.randomAnswerList(min, max));
+        boolean result = verifyHelper.isLegalInputGuess(RandomTool.randomAnswerList(min, max));
 
         //then
         assertTrue(result);

@@ -12,8 +12,8 @@ class CalibrationToolTest {
         int [] inputGuess = {1, 1, 2, 3};
 
         //when
-        CalibrationTool calibrationTool = new CalibrationTool();
-        boolean result = calibrationTool.isLegalInputGuess(inputGuess);
+        VerifyHelper verifyHelper = new VerifyHelper();
+        boolean result = verifyHelper.isLegalInputGuess(inputGuess);
 
         //then
         assertFalse(result);
@@ -25,8 +25,8 @@ class CalibrationToolTest {
         int [] inputGuess = {1, 2, 3, 30};
 
         //when
-        CalibrationTool calibrationTool = new CalibrationTool();
-        boolean result = calibrationTool.isLegalInputGuess(inputGuess);
+        VerifyHelper verifyHelper = new VerifyHelper();
+        boolean result = verifyHelper.isLegalInputGuess(inputGuess);
 
         //then
         assertFalse(result);
@@ -38,8 +38,8 @@ class CalibrationToolTest {
         int [] inputGuess = {1, 2, 3};
 
         //when
-        CalibrationTool calibrationTool = new CalibrationTool();
-        boolean result = calibrationTool.isLegalInputGuess(inputGuess);
+        VerifyHelper verifyHelper = new VerifyHelper();
+        boolean result = verifyHelper.isLegalInputGuess(inputGuess);
 
         //then
         assertFalse(result);

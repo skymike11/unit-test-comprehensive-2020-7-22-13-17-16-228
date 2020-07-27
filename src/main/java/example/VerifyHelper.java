@@ -4,7 +4,7 @@ package example;
  * @Auther Sam Li
  * @Date 2020-07-23
  */
-public class CalibrationTool {
+public class VerifyHelper {
 
     public boolean isLegalInputGuess(int[] inputGuess) {
         if (inputGuess.length < 4) {
