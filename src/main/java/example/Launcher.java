@@ -9,23 +9,21 @@ import static example.Constant.*;
  * @Date 2020-07-23
  */
 public class Launcher {
-    public void play() {
+
+    private GuessNumber guessNumber;
+
+    private final int GAME_TIMES = 6;
+
+    public Launcher() {
+        guessNumber = new GuessNumber(new AnswerGeneratorImpl());
+    }
+
+    public void process() {
         System.out.println(WELCOME_TIP);
-        int times = 6;
-        VerifyHelper verifyHelper = new VerifyHelper();
-        Scanner scan = new Scanner(System.in);
-        for (int time = times; time > 0; time--) {
-            int[] inputGuess = new int[4];
-            for (int j = 0; j < inputGuess.length; j++) {
-                inputGuess[j] = scan.nextInt();
-            }
-            if (!verifyHelper.isLegalInputGuess(inputGuess)) {
-                System.out.println(INPUT_ERR_TIP);
-                break;
-            } else {
-                GuessNumber guessNumber = new GuessNumber(new AnswerGeneratorImpl());
-                System.out.println(PrintTool.printAnswerResult(guessNumber.guess(inputGuess)));
-            }
+        for (int time = GAME_TIMES; time > 0; time--) {
+            int[] inputGuess = getUserInput();
+            System.out.println(run(inputGuess));
+
         }
         System.out.println(END_GAME);
     }

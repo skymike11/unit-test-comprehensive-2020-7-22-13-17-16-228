@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  */
 public class VerifyHelper {
 
-    public boolean isLegalInputGuess(int[] inputGuess) {
+    public static boolean isLegalInputGuess(int[] inputGuess) {
         if (inputGuess.length < 4) {
             return false;
         }
@@ -18,14 +18,14 @@ public class VerifyHelper {
         return !(isRepeated(inputGuess) || isOutOfRange(inputGuess));
     }
 
-    private boolean isRepeated(int[] inputGuess) {
+    private static boolean isRepeated(int[] inputGuess) {
         Set<Integer> inputGuessSet = Arrays.stream(inputGuess)
                 .boxed()
                 .collect(Collectors.toSet());
         return inputGuessSet.size() != inputGuess.length;
     }
 
-    private boolean isOutOfRange(int[] inputGuess) {
+    private static boolean isOutOfRange(int[] inputGuess) {
         return Arrays.stream(inputGuess).anyMatch(item -> item > 9 || item < 0);
     }
 }
