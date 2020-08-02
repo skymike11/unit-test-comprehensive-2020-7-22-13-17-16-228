@@ -1,6 +1,8 @@
 package example;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.mockito.Mockito;
 
 import static org.mockito.Mockito.when;
@@ -15,7 +17,7 @@ class LauncherTest {
 
         //when
         Launcher launcher = new Launcher();
-        launcher.play(RandomTool.randomAnswerList(1, 9));
-
+        String result = launcher.run(answerGenerator.generator());
+        Assertions.assertTrue(StringUtils.isNotBlank(result));
     }
 }

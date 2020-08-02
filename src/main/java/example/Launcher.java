@@ -28,7 +28,7 @@ public class Launcher {
         System.out.println(END_GAME);
     }
 
-    private String run(int[] inputGuess) {
+    public String run(int[] inputGuess) {
         if (!VerifyHelper.isLegalInputGuess(inputGuess)) {
             return INPUT_ERR_TIP;
         } else {
@@ -36,7 +36,7 @@ public class Launcher {
         }
     }
 
-    private int[] getUserInput() {
+    public int[] getUserInput() {
         Scanner scan = new Scanner(System.in);
         int[] inputGuess = new int[4];
         for (int j = 0; j < inputGuess.length; j++) {
