@@ -29,4 +29,21 @@ public class Launcher {
         }
         System.out.println(END_GAME);
     }
+
+    private String run(int[] inputGuess) {
+        if (!VerifyHelper.isLegalInputGuess(inputGuess)) {
+            return INPUT_ERR_TIP;
+        } else {
+            return PrintTool.printAnswerResult(guessNumber.guess(inputGuess));
+        }
+    }
+
+    private int[] getUserInput() {
+        Scanner scan = new Scanner(System.in);
+        int[] inputGuess = new int[4];
+        for (int j = 0; j < inputGuess.length; j++) {
+            inputGuess[j] = scan.nextInt();
+        }
+        return inputGuess;
+    }
 }
