@@ -10,12 +10,14 @@ import java.util.stream.Collectors;
  */
 public class VerifyHelper {
 
-    public static boolean isLegalInputGuess(int[] inputGuess) {
-        if (inputGuess.length < 4) {
-            return false;
-        }
+    private final static int LEGAL_LENGTH = 4;
 
-        return !(isRepeated(inputGuess) || isOutOfRange(inputGuess));
+    public static boolean isLegalInputGuess(int[] inputGuess) {
+        return !(isInvalidLength(inputGuess) || isRepeated(inputGuess) || isOutOfRange(inputGuess));
+    }
+
+    private static boolean isInvalidLength(int[] inputGuess) {
+        return inputGuess.length < LEGAL_LENGTH;
     }
 
     private static boolean isRepeated(int[] inputGuess) {
